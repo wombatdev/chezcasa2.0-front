@@ -18,17 +18,17 @@
         function RouterFunction($stateProvider, $locationProvider, $urlRouterProvider) {
             $locationProvider.html5Mode(true)
             $stateProvider
-                .state("Home", {
-                    url: "/",
-                    templateUrl: "/js/index.html",
-                    controller: "HomeController",
-                    controllerAs: "HomeViewModel"
-                })
                 .state("About", {
-                    url: "/about",
+                    url: "/",
                     templateUrl: "/js/about.html",
                     controller: "AboutController",
                     controllerAs: "AboutViewModel"
+                })
+                .state("Home", {
+                    url: "/index",
+                    templateUrl: "/js/index.html",
+                    controller: "HomeController",
+                    controllerAs: "HomeViewModel"
                 })
                 .state("Meals",{
                     url:"/meals",
