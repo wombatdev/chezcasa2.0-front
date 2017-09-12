@@ -5,6 +5,8 @@
     angular.module ("chezcasa", [
             "ui.router",
             "ngResource",
+            "Devise",
+            // "templates",
             "ngAnimate",
             // "meals"
         ])
@@ -40,13 +42,23 @@
                     url:"/signin",
                     templateUrl:"/js/chefs/signin.html",
                     controller: "SigninController",
-                    controllerAs: "SigninViewModel"
+                    controllerAs: "SigninViewModel",
+                    onEnter: function(Auth, $state){
+                        Auth.currentUser().then(function(){
+                            $state.go('Home')
+                        })
+                    }
                 })
                 .state("Signup",{
                     url:"/signup",
                     templateUrl:"/js/chefs/signup.html",
                     controller: "SignupController",
-                    controllerAs: "SignupViewModel"
+                    controllerAs: "SignupViewModel",
+                    onEnter: function(Auth, $state){
+                        Auth.currentUser().then(function(){
+                            $state.go('Home')
+                        })
+                    }
                 })
                 .state("Chefs",{
                     url:"/chefs",
